@@ -130,7 +130,7 @@ img {
 .forecast-box {
     width: 120px;
     height: 140px;
-    background-color: rgb(230, 230, 230);
+    background-color: lightskyblue;
     float: left;
     border: 1px solid rgba(112, 112, 112, 0.315);
     margin: 15px 1% 0px 1%;
@@ -174,4 +174,9 @@ footer {
         border-bottom-left-radius: 0px
     }
 
+  }
+  
+
+  div#header.container {
+      background-color: royalblue;
   }
