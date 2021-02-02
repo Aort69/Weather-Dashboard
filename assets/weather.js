@@ -61,7 +61,33 @@ function getUVIndex(cityToSearch) {
 
         // console.log("UVqueryURL: " + UVqueryURL);
 
-    
+        $.ajax({
+            url: UVqueryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            $('.UV').html(`${response.value}`);
+
+            // Set background color for UV index
+            if (response.value <= 2) {
+                $('.UV').css('background-color', '#8DC443');
+                $('.UV').css('color', 'white');
+            } else if (response.value > 2 && response.value <= 5) {
+                $('.UV').css('background-color', '#FDD835');
+                $('.UV').css('color', 'white');
+            } else if (response.value > 5 && response.value <= 7) {
+                $('.UV').css('background-color', '#FFB301');
+                $('.UV').css('color', 'white');
+            } else if (response.value > 7 && response.value <= 10) {
+                $('.UV').css('background-color', '#D1394A');
+                $('.UV').css('color', 'white');
+            } else if (response.value > 10) {
+                $('.UV').css('background-color', '#954F71');
+                $('.UV').css('color', 'white');
+            }
+
+
+        });
 
     });
 
