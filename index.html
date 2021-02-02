@@ -1,117 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- METADATA -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-
-    <!-- EXTERNAL LINKS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto:100,300,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- FAVICONS -->
-    <link rel="apple-touch-icon" sizes="180x180" href="Assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="Assets/favicon_io/site.webmanifest">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>|Weather Dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-
-    <!-- HEADER -->
-    <header class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <h1>Weather Dashboard</h1>
-            <img id="headerIcon" src="http://openweathermap.org/img/wn/10d@2x.png">
+    <div class="container" id="main-container">
+        <div class="container" id="header">
+            <p id="header-text">Weather Dashboard</p>
         </div>
-    </header>
-
-    <!-- OVERALL CARD -->
-    <div class="container displayContainer overallCard">
-        <div class="row">
-
-            <!-- ASIDE -->
-            <aside class="col-sm-3 displayContainer order-12 order-sm-1">
-                <form action="submit" id="city-search">
-                    <strong><label for="">Search for a City:</label></strong>
-                    <input type="text" id="city-text" aria-label="Search">
+        <div class="row" id="main-row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" id="main-col-left">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Search for a City:</label>
+                        <input type="text" class="form-control" id="city-input" autocomplete="off" placeholder="">
+                    </div>
                 </form>
-
-                <div id="searchHistory">
+                <div class="button-div">
                 </div>
-            </aside>
-
-            <!-- MAIN WEATHER -->
-            <main class="col-sm-9 order-1 order-sm-12">
-
-                <!-- CURRENT WEATHER -->
-                <div class="container displayContainer mainContainer">
-                    <div class="row align-items-center">
-                        <h2 class="city">Today's Weather</h2>
-                        <span id="currentDate"></span>
-                        <span id="currentDescription" class="weatherDescription"></span>
-                        <img id="currentIcon">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9" id="main-col-right">
+                <div class="city-div">
+                    <p id="icon" class="icon"></p>
+                    <p id="city-title"></p>
+                    <p id="temperature"></p>
+                    <p id="wind-speed"></p>
+                    <p id="UV-index" class="badge"></p>
+                </div>
+                <div class="forecast-div">
+                    <div class="forecast-box" id="box1">
+                        <p id="date1"></p>
                     </div>
-                    <div class="row justify-content-between">
-                        <div class="col displayCard">
-                            <h4>Temperature</h4> 
-                            <p class="temp displayNumber"></p>
-                        </div>
-                        <div class="col displayCard">
-                            <h4>Humidity</h4> 
-                            <p class="humidity displayNumber"></p>
-                        </div>
-                        <div class="col displayCard">
-                            <h4>Wind Speed</h4> 
-                            <p class="wind displayNumber"></p>
-                        </div>
-                        <div class="col displayCard">
-                            <h4>UV Index</h4> 
-                            <p class="UV displayNumber"></p>
-                        </div>
+                    <div class="forecast-box" id="box2">
+                        <p id="date2"></p>
+                    </div>
+                    <div class="forecast-box" id="box3">
+                        <p id="date3"></p>
+                    </div>
+                    <div class="forecast-box" id="box4">
+                        <p id="date4"></p>
+                    </div>
+                    <div class="forecast-box" id="box5">
+                        <p id="date5"></p>
                     </div>
                 </div>
-
-                <!-- 5-DAY FORECAST -->
-                <div class="container displayContainer mainContainer">
-                    <h2>5-Day Forecast</h2>
-                    <div class="row d-flex justify-content-between">
-                        <div class="col displayCard" data-card="0">
-                            <h4 class="forecastDate"></h4>
-                        </div>
-                        <div class="col displayCard" data-card="1">
-                            <h4 class="forecastDate"></h4>
-                        </div>
-                        <div class="col displayCard" data-card="2">
-                            <h4 class="forecastDate"></h4>
-                        </div>
-                        <div class="col displayCard" data-card="3">
-                            <h4 class="forecastDate"></h4>
-                        </div>
-                        <div class="col displayCard" data-card="4">
-                            <h4 class="forecastDate"></h4>
-                        </div>
-                    </div>
-                </div>
-            </main>
+            </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-    <script src="Assets/js/main.js"></script>
-    <script src="Assets/js/weather.js"></script>
-    <script src="Assets/js/forecast.js"></script>
-    <script src="Assets/js/search.js"></script>
-
+    <footer>- Allec Ortega -<br>&copy;2020</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/script.js"></script>
 </body>
 
 </html>
